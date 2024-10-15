@@ -33,6 +33,7 @@ services:
     environment:
       - DB_SERVER=${DB_SERVER}
       - DB_NAME=${DB_NAME}
+      - DB_PORT=${DB_PORT}
       - SA_PASSWORD=${SA_PASSWORD}
 
 networks:

@@ -10,12 +10,12 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE name='persona')
 BEGIN
 	CREATE TABLE persona (
-		cc INT NOT NULL,
-		nombre VARCHAR(45) NOT NULL,
-		apellido VARCHAR(45) NOT NULL,
-		genero CHAR(1) NOT NULL CHECK (genero IN('M', 'F')),
-		edad INT NOT NULL,
-		PRIMARY KEY (cc)
+    	cc INT NOT NULL,
+    	nombre VARCHAR(45) COLLATE Latin1_General_CI_AS NOT NULL,
+    	apellido VARCHAR(45) COLLATE Latin1_General_CI_AS NOT NULL,
+    	genero CHAR(1) COLLATE Latin1_General_CI_AS NOT NULL CHECK (genero IN('M', 'F')),
+    	edad INT NOT NULL,
+    	PRIMARY KEY (cc)
 	)
 END
 GO
@@ -23,10 +23,10 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE name='profesion')
 BEGIN
 	CREATE TABLE profesion (
-		id INT NOT NULL,
-		nom VARCHAR(90) NOT NULL,
-		des TEXT NOT NULL,
-		PRIMARY KEY (id)
+    	id INT NOT NULL,
+    	nom VARCHAR(90) COLLATE Latin1_General_CI_AS NOT NULL,
+    	des TEXT NOT NULL,
+    	PRIMARY KEY (id)
 	)
 END
 GO
@@ -34,24 +34,25 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE name='estudios')
 BEGIN
 	CREATE TABLE estudios (
-		id_prof INT NOT NULL,
-		cc_per INT NOT NULL,
-		fecha DATE NOT NULL,
-		univer VARCHAR(50) NOT NULL,
-		PRIMARY KEY (id_prof, cc_per),
-		CONSTRAINT FK_estudio_persona FOREIGN KEY (cc_per) REFERENCES dbo.persona (cc),
-		CONSTRAINT FK_estudio_profesion FOREIGN KEY (id_prof) REFERENCES dbo.profesion (id)
+    	id_prof INT NOT NULL,
+    	cc_per INT NOT NULL,
+    	fecha DATE NOT NULL,
+    	univer VARCHAR(50) COLLATE Latin1_General_CI_AS NOT NULL,
+    	PRIMARY KEY (id_prof, cc_per),
+    	CONSTRAINT FK_estudio_persona FOREIGN KEY (cc_per) REFERENCES dbo.persona (cc),
+    	CONSTRAINT FK_estudio_profesion FOREIGN KEY (id_prof) REFERENCES dbo.profesion (id)
 	)
+
 END
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE name='telefono')
 BEGIN
 	CREATE TABLE telefono (
-		num VARCHAR(50) NOT NULL,
-		oper VARCHAR(50) NOT NULL,
-		duenio INT NOT NULL,
-		PRIMARY KEY (num),
-		CONSTRAINT FK_telefono_persona FOREIGN KEY (duenio) REFERENCES dbo.persona (cc)
+    	num VARCHAR(15) COLLATE Latin1_General_CI_AS NOT NULL,
+    	oper VARCHAR(45) COLLATE Latin1_General_CI_AS NOT NULL,
+    	duenio INT NOT NULL,
+    	PRIMARY KEY (num),
+    	CONSTRAINT FK_telefono_persona FOREIGN KEY (duenio) REFERENCES dbo.persona (cc)
 	)
 END
