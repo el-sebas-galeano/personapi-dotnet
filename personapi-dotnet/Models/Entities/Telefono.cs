@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace personapi_dotnet.Models.Entities
-{
-    public partial class Telefono
-    {
-        public string Num { get; set; } = null!;
-        public string? Oper { get; set; }
-        public long? Dueno { get; set; }
+namespace personapi_dotnet.Models.Entities;
 
-        public virtual Persona? DuenoNavigation { get; set; }
-    }
+public partial class Telefono
+{
+    public string Num { get; set; } = null!;
+
+    public string? Oper { get; set; }
+
+    public long? Dueno { get; set; }
+
+    public virtual Persona? DuenoNavigation { get; set; }
 }
