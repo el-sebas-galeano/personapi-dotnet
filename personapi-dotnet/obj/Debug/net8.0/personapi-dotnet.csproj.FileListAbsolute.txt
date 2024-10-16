@@ -257,3 +257,8 @@ C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\
 C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\SEBASTIAN\Documents\GitHub\personapi-dotnet\personapi-dotnet\obj\Debug\net8.0\personapi-dotnet.MvcApplicationPartsAssemblyInfo.cs
