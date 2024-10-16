@@ -33,7 +33,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE name='estudios')
 BEGIN
 	CREATE TABLE estudios (
     	id_prof INT NOT NULL,
-    	cc_per INT NOT NULL,
+    	cc_per BIGINT NOT NULL,
     	fecha DATE NOT NULL,
     	univer VARCHAR(50) COLLATE Latin1_General_CI_AS NOT NULL,
     	PRIMARY KEY (id_prof, cc_per),
@@ -49,7 +49,7 @@ BEGIN
 	CREATE TABLE telefono (
     	num VARCHAR(15) COLLATE Latin1_General_CI_AS NOT NULL,
     	oper VARCHAR(45) COLLATE Latin1_General_CI_AS NOT NULL,
-    	dueno INT NOT NULL,
+    	dueno BIGINT NOT NULL,
     	PRIMARY KEY (num),
     	CONSTRAINT FK_telefono_persona FOREIGN KEY (dueno) REFERENCES dbo.persona (cc)
 	)
