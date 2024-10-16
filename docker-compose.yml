@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  data:
+    build: ./db-config
+    container_name: ms_sql
+    image: ms_sql
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=TuPassword123!
+      - MSSQL_PID=Express
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'SELECT 1;' | /opt/mssql-tools/bin/sqlcmd -S ms_sql -U sa -P TuPassword123! -d persona_db || exit 1"]
+      interval: 10s
+      retries: 10
+      start_period: 10s
+      timeout: 3s
+    ports:
+      - "1433:1433"
+    networks:
+      - lab-net-1
+
+  personapi-dotnet:
+    build: ./personapi-dotnet
+    container_name: personapi-dotnet
+    image: personapidotnet
+    ports:
+      - "32770:8080"
+    depends_on:
+      data:
+        condition: service_healthy
+    environment:
+      - DB_SERVER=ms_sql
+      - DB_NAME=persona_db
+      - DB_PORT=1433
+      - SA_PASSWORD=TuPassword123!
+    networks:
+      - lab-net-1
+
+networks:
+  lab-net-1:
+    driver: bridge
