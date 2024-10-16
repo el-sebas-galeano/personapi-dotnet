@@ -8,10 +8,10 @@ services:
     restart: always
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=${SA_PASSWORD}
-      - MSSQL_PID=${MSSQL_PID}
+      - SA_PASSWORD=TuPassword123!
+      - MSSQL_PID=Express
     healthcheck:
-      test: ["CMD-SHELL", "echo 'SELECT 1;' | /opt/mssql-tools/bin/sqlcmd -S ms_sql -U sa -P ${SA_PASSWORD} -d persona_db || exit 1"]
+      test: ["CMD-SHELL", "echo 'SELECT 1;' | /opt/mssql-tools/bin/sqlcmd -S ms_sql -U sa -P TuPassword123! -d persona_db || exit 1"]
       interval: 10s
       retries: 10
       start_period: 10s
@@ -31,10 +31,12 @@ services:
       data:
         condition: service_healthy
     environment:
-      - DB_SERVER=${DB_SERVER}
-      - DB_NAME=${DB_NAME}
-      - DB_PORT=${DB_PORT}
-      - SA_PASSWORD=${SA_PASSWORD}
+      - DB_SERVER=ms_sql
+      - DB_NAME=persona_db
+      - DB_PORT=1433
+      - SA_PASSWORD=TuPassword123!
+    networks:
+      - lab-net-1
 
 networks:
   lab-net-1:
