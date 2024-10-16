@@ -17,7 +17,7 @@ INSERT INTO persona_db.dbo.estudios (id_prof, cc_per, fecha, univer) VALUES
 (3, 345678, '2021-01-01', 'Universidad de los Andes');
 
 -- Insertar datos de prueba en la tabla telefono
-INSERT INTO persona_db.dbo.telefono (num, oper, duenio) VALUES
+INSERT INTO persona_db.dbo.telefono (num, oper, dueno) VALUES
 ('3223654789', 'Claro', 123456),
 ('3145792456', 'Movistar', 234567),
 ('3159287754', 'Tigo', 345678);
