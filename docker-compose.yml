@@ -35,6 +35,7 @@ services:
       - DB_NAME=persona_db
       - DB_PORT=1433
       - SA_PASSWORD=TuPassword123!
+      - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - lab-net-1
 
